@@ -14,9 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 Route::get('/',[DataController::class,'index'])->name('admin')->middleware('auth');
 Route::get('show/{id}',[DataController::class,'show'])->name('show');
 
@@ -33,10 +30,10 @@ Route::put('update/{id}',[DataController::class,'update'])->name('update')->midd
 //Change Status
 Route::put('status/{id}',[DataController::class,'changestatus'])->name('status')->middleware('auth');
 
-//Change Status
+//Delete Data
 Route::delete('delete/{id}',[DataController::class,'destroy'])->name('destroy')->middleware('auth');
 
-//Download file from public folser
+//Download file from public folder
 Route::post('upload/{id}',[DataController::class,'upload'])->name('upload');
 Auth::routes();
 
